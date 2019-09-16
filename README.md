@@ -50,65 +50,6 @@ machines.head()
 ```
 
 
-    ---------------------------------------------------------------------------
-
-    FileNotFoundError                         Traceback (most recent call last)
-
-    <ipython-input-2-05892b089702> in <module>()
-    ----> 1 machines = pd.read_csv('machines.csv', encoding='utf-8')
-          2 machines.head()
-    
-
-    ~\Anaconda3\lib\site-packages\pandas\io\parsers.py in parser_f(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, escapechar, comment, encoding, dialect, tupleize_cols, error_bad_lines, warn_bad_lines, skipfooter, doublequote, delim_whitespace, low_memory, memory_map, float_precision)
-        676                     skip_blank_lines=skip_blank_lines)
-        677 
-    --> 678         return _read(filepath_or_buffer, kwds)
-        679 
-        680     parser_f.__name__ = name
-    
-
-    ~\Anaconda3\lib\site-packages\pandas\io\parsers.py in _read(filepath_or_buffer, kwds)
-        438 
-        439     # Create the parser.
-    --> 440     parser = TextFileReader(filepath_or_buffer, **kwds)
-        441 
-        442     if chunksize or iterator:
-    
-
-    ~\Anaconda3\lib\site-packages\pandas\io\parsers.py in __init__(self, f, engine, **kwds)
-        785             self.options['has_index_names'] = kwds['has_index_names']
-        786 
-    --> 787         self._make_engine(self.engine)
-        788 
-        789     def close(self):
-    
-
-    ~\Anaconda3\lib\site-packages\pandas\io\parsers.py in _make_engine(self, engine)
-       1012     def _make_engine(self, engine='c'):
-       1013         if engine == 'c':
-    -> 1014             self._engine = CParserWrapper(self.f, **self.options)
-       1015         else:
-       1016             if engine == 'python':
-    
-
-    ~\Anaconda3\lib\site-packages\pandas\io\parsers.py in __init__(self, src, **kwds)
-       1706         kwds['usecols'] = self.usecols
-       1707 
-    -> 1708         self._reader = parsers.TextReader(src, **kwds)
-       1709 
-       1710         passed_names = self.names is None
-    
-
-    pandas\_libs\parsers.pyx in pandas._libs.parsers.TextReader.__cinit__()
-    
-
-    pandas\_libs\parsers.pyx in pandas._libs.parsers.TextReader._setup_parser_source()
-    
-
-    FileNotFoundError: File b'machines.csv' does not exist
-
-
-
 ```python
 machines.describe()
 ```
@@ -133,7 +74,7 @@ plt.show()
     
 
 
-![png](output_8_1.png)
+![png](readmeimages/output_8_1.png)
 
 
 This figure shows lifecycle of each machine. The machine age is a important feature for analysis because various errors and failures of machines largely depend on it. We can see that for all age intervals the number of machines are always highest for model 3 followed by model 4, model 2 and model 1.
@@ -238,7 +179,7 @@ plt.show()
 ```
 
 
-![png](output_14_0.png)
+![png](readmeimages/output_14_0.png)
 
 
 Here as stated in the introduction about the dataset the error data is a time series data about the five different classes of error which occured throughout the year. Plotting the error log for each machine will not be much helpful here since there are total of 1000 machines. Thus, it will be very unconstructive to go through analysis of each and every machine.
@@ -340,7 +281,7 @@ plt.show()
 ```
 
 
-![png](output_19_0.png)
+![png](readmeimages/output_19_0.png)
 
 
 Above histogram shows analysis of component replacement history into four different categories over the years. From the graph it can be inferred that the components are replaced at similar rates.
@@ -569,19 +510,19 @@ plt.show()
 ```
 
 
-![png](output_24_0.png)
+![png](readmeimages/output_24_0.png)
 
 
 
-![png](output_24_1.png)
+![png](readmeimages/output_24_1.png)
 
 
 
-![png](output_24_2.png)
+![png](readmeimages/output_24_2.png)
 
 
 
-![png](output_24_3.png)
+![png](readmeimages/output_24_3.png)
 
 
 Above figure shows telelmetry data of one month for one machine which is plotted separately for each type of sensors.
@@ -683,7 +624,7 @@ plt.show()
 ```
 
 
-![png](output_29_0.png)
+![png](readmeimages/output_29_0.png)
 
 
 The above histogram counts the number of failures related replacements which has been occured for each of the component type. 
@@ -1193,21 +1134,6 @@ error_count.reset_index(inplace=True)
 error_count = error_feat.dropna()
 error_count.describe()
 ```
-
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-27-61de3c9dab2b> in <module>()
-         11 error_count.columns = [i + 'count' for i in fields]
-         12 error_count.reset_index(inplace=True)
-    ---> 13 error_count = error_feat.dropna()
-         14 error_count.describe()
-    
-
-    NameError: name 'error_feat' is not defined
-
 
 ## Calculating days since last replacement using maintenance dataset  
 
@@ -2101,7 +2027,7 @@ plt.show()
 ```
 
 
-![png](output_67_0.png)
+![png](readmeimages/output_67_0.png)
 
 
 ## Naive Bayes Model
@@ -2419,7 +2345,7 @@ plt.show()
 ```
 
 
-![png](output_80_0.png)
+![png](readmeimages/output_80_0.png)
 
 
 ## Neural Network Model
